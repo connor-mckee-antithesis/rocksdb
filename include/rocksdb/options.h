@@ -575,7 +575,7 @@ struct DBOptions {
   // `total_threads` is used. Good value for `total_threads` is the number of
   // cores. You almost definitely want to call this function if your system is
   // bottlenecked by RocksDB.
-  DBOptions* IncreaseParallelism(int total_threads = 16);
+  DBOptions* IncreaseParallelism(int total_threads = 8);
 
   // If true, the database will be created if it is missing.
   // Default: false
@@ -825,7 +825,7 @@ struct DBOptions {
   // Default: 2
   //
   // Dynamically changeable through SetDBOptions() API.
-  int max_background_jobs = 2;
+  int max_background_jobs = 4;
 
   // DEPRECATED: RocksDB automatically decides this based on the
   // value of max_background_jobs. For backwards compatibility we will set
