@@ -696,8 +696,8 @@ ColumnFamilyOptions* ColumnFamilyOptions::OptimizeUniversalStyleCompaction(
 
 DBOptions* DBOptions::IncreaseParallelism(int total_threads) {
   max_background_jobs = total_threads;
-  env->SetBackgroundThreads(total_threads, Env::LOW);
-  env->SetBackgroundThreads(total_threads, Env::HIGH);
+  env->SetBackgroundThreads(2, Env::LOW);
+  env->SetBackgroundThreads(2, Env::HIGH);
   return this;
 }
 
